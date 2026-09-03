@@ -90,8 +90,8 @@ export function Footer() {
       <p className="mt-1 text-sm text-muted-foreground">
         Celebrating the mentors who shape tomorrow.
       </p>
-      <p className="mt-6 text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
-        Credits: AM Reddy Group of Institutions
+      <p className="mt-6 text-[11px] tracking-[0.2em] text-gold/80 uppercase">
+        Credits: SAC Invitation Team, AM Reddy Group of Institutions
       </p>
     </footer>
   );
