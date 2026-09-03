@@ -45,7 +45,8 @@ export function Leadership() {
               transition={{ type: "spring", stiffness: 220, damping: 20 }}
               className="glass group h-full rounded-3xl p-7 text-center transition-shadow hover:shadow-[var(--shadow-gold)]"
             >
-              <div className="mx-auto grid size-24 place-items-center overflow-hidden rounded-full border border-gold/40 transition-transform duration-500 group-hover:scale-105">
+              <div className="relative mx-auto grid size-24 place-items-center overflow-hidden rounded-full border border-gold/40 transition-transform duration-500 group-hover:scale-105">
+                <span className="gold-ring" aria-hidden="true" />
                 {l.photo ? (
                   <img
                     src={l.photo}

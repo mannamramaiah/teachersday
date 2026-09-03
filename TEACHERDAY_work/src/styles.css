@@ -183,6 +183,8 @@
   box-shadow: 0 10px 30px rgba(0,0,0,0.18), 0 0 0 6px rgba(255,215,120,0.08);
   border: 3px solid color-mix(in oklab, var(--gold) 55%, transparent);
   transition: transform 200ms ease, box-shadow 200ms ease;
+  position: relative;
+  z-index: 1;
 }
 
 .profile-pic:hover,
@@ -191,7 +193,48 @@
   box-shadow: 0 18px 40px rgba(0,0,0,0.22), 0 0 0 8px rgba(255,215,120,0.12);
 }
 
+/* decorative gold ring used under images */
+.gold-ring {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%, -20%);
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,215,120,0.15), transparent 40%);
+  box-shadow: 0 8px 30px rgba(255,215,120,0.10), 0 0 0 6px rgba(255,215,120,0.06) inset;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.85;
+  transition: transform 300ms ease, opacity 200ms ease;
+}
+
+/* larger ring for gallery tiles */
+.motion-figure .gold-ring,
+.gold-ring--large {
+  width: 220px;
+  height: 220px;
+  top: 30%;
+  transform: translate(-50%, -30%);
+}
+
+/* hover emphasis */
+.group:hover .gold-ring {
+  transform: translate(-50%, -20%) scale(1.06);
+  opacity: 0.98;
+}
+
+/* ensure image sits above decorative ring */
+.glass img,
+.profile-card img {
+  position: relative;
+  z-index: 1;
+}
+
 /* smaller / responsive */
 @media (max-width: 480px) {
   .profile-pic { width: 110px; height: 110px; }
+  .gold-ring { width: 120px; height: 120px; top: 18%; }
+  .gold-ring--large { width: 160px; height: 160px; top: 22%; }
 }

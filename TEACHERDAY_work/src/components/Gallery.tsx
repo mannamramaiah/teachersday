@@ -45,6 +45,9 @@ export function Gallery() {
                 />
               )}
 
+              {/* decorative gold circle behind the image to make it look special */}
+              <div className={`gold-ring ${item.highlight ? 'gold-ring--large' : ''}`} aria-hidden="true" />
+
               {/* overlay: make first item background more visible by lowering overlay opacity */}
               <div
                 className={`absolute inset-0 transition-colors duration-500 ${
