@@ -5,33 +5,46 @@ import { Reveal } from "@/components/Section";
 import { Particles } from "@/components/Particles";
 import { downloadIcs, EVENT_DATE_LABEL, EVENT_TIME_LABEL, ORG, VENUE } from "@/lib/event";
 
+import campus from "@/assets/campus.jpeg";
+import texture from "@/assets/texture.jpg";
+import lastClass from "@/assets/image_2.jpeg";
+
 export function GrandInvitation() {
   const [venueOpen, setVenueOpen] = useState(false);
 
   return (
     <section id="invitation" className="section-pad relative overflow-hidden">
       <Particles count={18} />
+
+      {/* decorative collage background behind the invitation card */}
+      <div className="invitation-collage" aria-hidden="true">
+        <img src={campus} alt="" className="invitation-image img-camp" />
+        <img src={texture} alt="" className="invitation-image img-texture" />
+        <img src={lastClass} alt="" className="invitation-image img-lastclass" />
+        <div className="invitation-card-spotlight" />
+      </div>
+
       <Reveal className="relative mx-auto max-w-3xl">
-        <div className="glass rounded-[2rem] border border-gold/40 p-8 text-center sm:p-14">
+        <div className="glass invitation-card-contents rounded-[2rem] border border-gold/40 p-8 text-center sm:p-14">
           <p className="text-[11px] tracking-[0.35em] text-gold uppercase">
             You are cordially invited
           </p>
-          <h2 className="mt-5 font-display text-3xl font-semibold sm:text-5xl">
+          <h2 className="mt-5 font-display text-4xl font-semibold sm:text-6xl">
             <span className="gold-text">Teacher&rsquo;s Day Celebration 2026</span>
           </h2>
           <div className="gold-rule mx-auto mt-6 w-48" />
-          <dl className="mt-8 space-y-2 text-base text-foreground/90">
+          <dl className="mt-8 space-y-3 text-base text-foreground/95">
             <div>
               <dt className="sr-only">Date</dt>
-              <dd>{EVENT_DATE_LABEL}</dd>
+              <dd className="text-lg font-medium">{EVENT_DATE_LABEL}</dd>
             </div>
             <div>
               <dt className="sr-only">Time</dt>
-              <dd>{EVENT_TIME_LABEL}</dd>
+              <dd className="text-lg font-medium">{EVENT_TIME_LABEL}</dd>
             </div>
             <div>
               <dt className="sr-only">Venue</dt>
-              <dd>{VENUE}</dd>
+              <dd className="text-lg font-medium">{VENUE}</dd>
             </div>
             <div>
               <dt className="sr-only">Organisation</dt>
@@ -44,7 +57,7 @@ export function GrandInvitation() {
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               onClick={() => downloadIcs()}
-              className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-xs font-semibold tracking-[0.2em] text-primary-foreground uppercase"
+              className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold tracking-[0.12em] text-primary-foreground uppercase"
               style={{ backgroundImage: "var(--gradient-gold)", boxShadow: "var(--shadow-gold)" }}
             >
               <CalendarPlus className="size-4" aria-hidden="true" /> Add to Calendar
@@ -53,7 +66,7 @@ export function GrandInvitation() {
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               onClick={() => setVenueOpen(true)}
-              className="inline-flex items-center gap-2 rounded-full border border-gold/50 px-6 py-3 text-xs font-semibold tracking-[0.2em] text-gold uppercase"
+              className="inline-flex items-center gap-2 rounded-full border border-gold/50 px-6 py-3 text-sm font-semibold tracking-[0.12em] text-gold uppercase"
             >
               <MapPin className="size-4" aria-hidden="true" /> View Venue
             </motion.button>
