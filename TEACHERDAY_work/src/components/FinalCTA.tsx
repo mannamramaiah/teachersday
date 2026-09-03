@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { Heart } from "lucide-react";
-import campus from "@/assets/campus.jpeg";
 import { Particles, LightRays } from "@/components/Particles";
 import { ORG } from "@/lib/event";
 import { scrollToId } from "@/components/Navbar";
@@ -39,15 +38,8 @@ export function FinalCTA() {
   const reduced = useReducedMotion();
   return (
     <section className="relative flex min-h-[80svh] items-center justify-center overflow-hidden px-5 py-24">
-      <motion.img
-        src={campus}
-        alt=""
-        aria-hidden="true"
-        loading="lazy"
-        className="absolute inset-0 size-full object-cover"
-        animate={reduced ? { scale: 1.05 } : { scale: [1.05, 1.14, 1.05] }}
-        transition={{ duration: 40, repeat: Infinity, ease: "easeInOut" }}
-      />
+      {/* Decorative background in place of removed campus photo */}
+      <div className="absolute inset-0" aria-hidden="true" style={{ background: "var(--gradient-navy)" }} />
       <div className="absolute inset-0 bg-navy-deep/85" aria-hidden="true" />
       <div
         className="absolute inset-0 opacity-70"
@@ -99,7 +91,7 @@ export function Footer() {
         Celebrating the mentors who shape tomorrow.
       </p>
       <p className="mt-6 text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
-        Credits: SAC Invitation Committee, AM Reddy Group of Institutions
+        Credits: AM Reddy Group of Institutions
       </p>
     </footer>
   );

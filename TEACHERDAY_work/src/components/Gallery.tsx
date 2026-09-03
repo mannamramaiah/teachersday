@@ -1,13 +1,9 @@
 import { motion } from "motion/react";
 import { Camera, BookOpen, Users, PartyPopper, Handshake, Trophy, Sparkles } from "lucide-react";
-import campus from "@/assets/campus.jpeg";
 import texture from "@/assets/texture.jpg";
 import { Reveal, SectionHeading } from "@/components/Section";
 
 const ITEMS = [
-  { title: "Campus Memories", icon: Camera, image: campus },
-  { title: "Classroom Moments", icon: BookOpen, image: null },
-  { title: "Teacher-Student Interactions", icon: Users, image: null },
   { title: "College Events", icon: PartyPopper, image: texture },
   { title: "Mentoring Sessions", icon: Handshake, image: null },
   { title: "Student Achievements", icon: Trophy, image: null },
