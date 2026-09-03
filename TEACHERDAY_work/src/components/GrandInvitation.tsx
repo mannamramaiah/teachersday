@@ -3,11 +3,9 @@ import { AnimatePresence, motion } from "motion/react";
 import { CalendarPlus, MapPin, X } from "lucide-react";
 import { Reveal } from "@/components/Section";
 import { Particles } from "@/components/Particles";
-import { downloadIcs, EVENT_DATE_LABEL, EVENT_TIME_LABEL, ORG, VENUE } from "@/lib/event";
+import { downloadIcs, EVENT_DATE_LABEL, EVENT_TIME_LABEL, ORG, VENUE, LOCATION } from "@/lib/event";
 
-import campus from "@/assets/campus.jpeg";
-import texture from "@/assets/texture.jpg";
-import lastClass from "@/assets/image_2.jpeg";
+import invitationBg from "@/assets/image_2.jpeg";
 
 export function GrandInvitation() {
   const [venueOpen, setVenueOpen] = useState(false);
@@ -16,23 +14,27 @@ export function GrandInvitation() {
     <section id="invitation" className="section-pad relative overflow-hidden">
       <Particles count={18} />
 
-      {/* decorative collage background behind the invitation card */}
-      <div className="invitation-collage" aria-hidden="true">
-        <img src={campus} alt="" className="invitation-image img-camp" />
-        <img src={texture} alt="" className="invitation-image img-texture" />
-        <img src={lastClass} alt="" className="invitation-image img-lastclass" />
-        <div className="invitation-card-spotlight" />
-      </div>
+      {/* full-bleed invitation background image */}
+      <img
+        src={invitationBg}
+        alt="Invitation background"
+        className="absolute inset-0 h-full w-full object-cover opacity-95"
+        aria-hidden="true"
+      />
+
+      {/* subtle overlay so card remains legible */}
+      <div className="absolute inset-0 bg-navy-deep/70" aria-hidden="true" />
 
       <Reveal className="relative mx-auto max-w-3xl">
-        <div className="glass invitation-card-contents rounded-[2rem] border border-gold/40 p-8 text-center sm:p-14">
-          <p className="text-[11px] tracking-[0.35em] text-gold uppercase">
-            You are cordially invited
-          </p>
+        <div className="glass rounded-[2rem] border border-gold/40 p-8 text-center sm:p-14 invitation-card-contents">
+          <p className="text-[11px] tracking-[0.35em] text-gold uppercase">You are cordially invited</p>
+
           <h2 className="mt-5 font-display text-4xl font-semibold sm:text-6xl">
             <span className="gold-text">Teacher&rsquo;s Day Celebration 2026</span>
           </h2>
+
           <div className="gold-rule mx-auto mt-6 w-48" />
+
           <dl className="mt-8 space-y-3 text-base text-foreground/95">
             <div>
               <dt className="sr-only">Date</dt>
@@ -44,11 +46,11 @@ export function GrandInvitation() {
             </div>
             <div>
               <dt className="sr-only">Venue</dt>
-              <dd className="text-lg font-medium">{VENUE}</dd>
+              <dd className="text-lg font-medium">{VENUE} at {EVENT_TIME_LABEL}</dd>
             </div>
             <div>
-              <dt className="sr-only">Organisation</dt>
-              <dd className="pt-2 text-sm tracking-[0.22em] text-gold uppercase">{ORG}</dd>
+              <dt className="sr-only">Location</dt>
+              <dd className="pt-2 text-sm tracking-[0.22em] text-gold uppercase">{LOCATION}</dd>
             </div>
           </dl>
 
@@ -62,14 +64,18 @@ export function GrandInvitation() {
             >
               <CalendarPlus className="size-4" aria-hidden="true" /> Add to Calendar
             </motion.button>
-            <motion.button
+            <motion.a
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
-              onClick={() => setVenueOpen(true)}
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                `${VENUE}, ${LOCATION}`,
+              )}`}
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-gold/50 px-6 py-3 text-sm font-semibold tracking-[0.12em] text-gold uppercase"
             >
-              <MapPin className="size-4" aria-hidden="true" /> View Venue
-            </motion.button>
+              <MapPin className="size-4" aria-hidden="true" /> Open in Maps
+            </motion.a>
           </div>
         </div>
       </Reveal>
@@ -104,9 +110,7 @@ export function GrandInvitation() {
               <h3 className="mt-4 font-display text-2xl font-semibold text-foreground">{VENUE}</h3>
               <p className="mt-2 text-xs tracking-[0.22em] text-gold uppercase">{ORG}</p>
               <p className="mt-5 text-sm text-muted-foreground">
-                The celebration will be held in the {VENUE} on campus on {EVENT_DATE_LABEL} at{" "}
-                {EVENT_TIME_LABEL}. Please reach the venue 15 minutes early. For directions inside
-                campus, kindly contact the SAC Invitation Committee.
+                The celebration will be held in the {VENUE} on campus on {EVENT_DATE_LABEL} at {EVENT_TIME_LABEL}. Please reach the venue 15 minutes early. For directions inside campus, kindly contact the SAC Invitation Team.
               </p>
             </motion.div>
           </motion.div>
