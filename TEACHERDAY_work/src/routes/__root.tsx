@@ -10,6 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { EVENT_TITLE, EVENT_DATE, ORG, VENUE } from "@/lib/event";
 
 function NotFoundComponent() {
   return (
@@ -103,10 +104,35 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: EVENT_TITLE,
+    startDate: EVENT_DATE.toISOString(),
+    endDate: new Date(EVENT_DATE.getTime() + 2 * 60 * 60 * 1000).toISOString(),
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    eventStatus: "https://schema.org/EventScheduled",
+    location: {
+      "@type": "Place",
+      name: VENUE,
+      address: {
+        "@type": "PostalAddress",
+        name: ORG,
+      },
+    },
+    organizer: {
+      "@type": "Organization",
+      name: ORG,
+      url: "https://github.com/mannamramaiah/teachersday",
+    },
+    url: "https://github.com/mannamramaiah/teachersday",
+  };
+
   return (
     <html lang="en">
       <head>
         <HeadContent />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body>
         {children}
