@@ -7,8 +7,8 @@ import krishnaReddyPhoto from "@/assets/krishna_reddy.jpeg";
 import bhargavBhushanPhoto from "@/assets/bhargav_bhushan.jpeg";
 
 const LEADERS = [
-  { name: "Sri A. Srinivas Reddy", role: "Chairman", photo: chairmanPhoto },
-  { name: "Dr Santhi Atluri Secretary, A M REDDY GROUP OF INSTITUTIONS", role: "", photo: secretaryPhoto },
+  { name: "Sri A. Srinivas Reddy", role: "Chairman of A M REDDY GROUP OF INSTITUTIONS", photo: chairmanPhoto },
+  { name: "Dr Santhi Atluri", role: "Secretary of A M REDDY GROUP OF INSTITUTIONS", photo: secretaryPhoto },
   {
     name: "Dr. Ch. Mallikarjun",
     role: "B.Tech Principal",
@@ -66,7 +66,7 @@ export function Leadership() {
               </div>
               <h3 className="mt-6 text-xl font-semibold text-foreground">{l.name}</h3>
               <div className="gold-rule mx-auto mt-3 w-16" />
-              <p className="mt-3 text-xs tracking-[0.25em] text-gold uppercase">{l.role}</p>
+              <p className="mt-2 text-sm text-gold/80">{l.role}</p>
             </motion.article>
           </Reveal>
         ))}
