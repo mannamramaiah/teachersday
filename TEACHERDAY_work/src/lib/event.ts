@@ -1,4 +1,4 @@
-export const ORG = "AM REDDY GROUP OF INSTITUTIONS";
+export const ORG = "A.M Reddy Group of Educational Institutions";
 export const COLLEGE_NAME = "A.M. Reddy Memorial College of Pharmacy";
 export const EVENT_TITLE = "Teacher's Day Celebration 2026";
 export const EVENT_DATE_LABEL = "September 5, 2026";
@@ -26,7 +26,7 @@ export function buildIcs(personalizedFor?: string) {
   return [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//AM Reddy Group of Institutions//Teachers Day 2026//EN",
+    "PRODID:-//A.M Reddy Group of Educational Institutions//Teachers Day 2026//EN",
     "CALSCALE:GREGORIAN",
     "BEGIN:VEVENT",
     `UID:teachers-day-2026-${Date.now()}@amreddy`,
