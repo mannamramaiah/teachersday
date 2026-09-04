@@ -15,19 +15,21 @@ const TITLE = "Teacher's Day 2026 | AM Reddy Group of Institutions";
 const DESC =
   "Teacher's Day Celebration 2026 at AM Reddy Group of Institutions — September 5, 2026, 1:30 PM IST, Seminar Hall. A tribute to our mentors.";
 
-export const Route = createFileRoute("/")({}
-  head: () => ({
-    meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESC },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
-  component: Index,
-});
+export const Route = createFileRoute("/")(
+  {
+    head: () => ({
+      meta: [
+        { title: TITLE },
+        { name: "description", content: DESC },
+        { property: "og:title", content: TITLE },
+        { property: "og:description", content: DESC },
+        { property: "og:type", content: "website" },
+        { name: "twitter:card", content: "summary_large_image" },
+      ],
+    }),
+    component: Index,
+  }
+);
 
 function Index() {
   return (
