@@ -2,6 +2,8 @@ import { motion } from "motion/react";
 import { Reveal, SectionHeading } from "@/components/Section";
 import chairmanPhoto from "@/assets/image_2.jpeg";
 import secretaryPhoto from "@/assets/imag1.jpeg";
+import manasAvif from "@/assets/Manas.avif";
+import manasWebp from "@/assets/Manas.webp";
 import manasPhoto from "@/assets/Manas.jpeg";
 import mallikarjunPhoto from "@/assets/mallikarjun.webp";
 import krishnaReddyPhoto from "@/assets/krishna_reddy.jpeg";
@@ -10,7 +12,12 @@ import bhargavBhushanPhoto from "@/assets/bhargav_bhushan.jpeg";
 const LEADERS = [
   { name: "Sri A. Srinivas Reddy", role: "Chairman of A M REDDY GROUP OF INSTITUTIONS", photo: chairmanPhoto },
   { name: "Dr Santhi Atluri", role: "Secretary of A M REDDY GROUP OF INSTITUTIONS", photo: secretaryPhoto },
-  { name: "Mr. Atluri Manas Reddy", role: "Global Secretary, AMR Group", photo: manasPhoto },
+  {
+    name: "Mr. Atluri Manas Reddy",
+    role: "Global Secretary, AMR Group",
+    photo: manasPhoto,
+    sources: { avif: manasAvif, webp: manasWebp },
+  },
   {
     name: "Dr. Ch. Mallikarjun",
     role: "B.Tech Principal",
@@ -49,7 +56,13 @@ export function Leadership() {
             >
               <div className="relative mx-auto grid size-24 place-items-center overflow-hidden rounded-full border border-gold/40 transition-transform duration-500 group-hover:scale-105">
                 <span className="gold-ring" aria-hidden="true" />
-                {l.photo ? (
+                {l.sources ? (
+                  <picture>
+                    <source srcSet={l.sources.avif} type="image/avif" />
+                    <source srcSet={l.sources.webp} type="image/webp" />
+                    <img src={l.photo} alt={l.name} loading="lazy" className="size-full object-cover" />
+                  </picture>
+                ) : l.photo ? (
                   <img
                     src={l.photo}
                     alt={l.name}
