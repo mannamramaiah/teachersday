@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { Reveal, SectionHeading } from "@/components/Section";
 import chairmanPhoto from "@/assets/image_2.jpeg";
 import secretaryPhoto from "@/assets/imag1.jpeg";
-import manasPhoto from "@/assets/Manas.jpeg";
+import manasPhoto from "@/assets/Manas.webp";
 import mallikarjunPhoto from "@/assets/mallikarjun.webp";
 import krishnaReddyPhoto from "@/assets/krishna_reddy.jpeg";
 import bhargavBhushanPhoto from "@/assets/bhargav_bhushan.jpeg";
