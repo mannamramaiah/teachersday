@@ -9,6 +9,7 @@ import bhargavBhushanPhoto from "@/assets/bhargav_bhushan.jpeg";
 const LEADERS = [
   { name: "Sri A. Srinivas Reddy", role: "Chairman of A M REDDY GROUP OF INSTITUTIONS", photo: chairmanPhoto },
   { name: "Dr Santhi Atluri", role: "Secretary of A M REDDY GROUP OF INSTITUTIONS", photo: secretaryPhoto },
+  { name: "Mr. Atluri Manas Reddy", role: "Global Secretary, AMR Group", photo: null },
   {
     name: "Dr. Ch. Mallikarjun",
     role: "B.Tech Principal",
