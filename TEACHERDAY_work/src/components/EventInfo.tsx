@@ -1,13 +1,12 @@
 import { motion } from "motion/react";
-import { CalendarDays, Clock, MapPin, Landmark, Lightbulb, Compass, Rocket } from "lucide-react";
+import { CalendarDays, Clock, MapPin, Lightbulb, Compass, Rocket } from "lucide-react";
 import { Reveal, SectionHeading } from "@/components/Section";
-import { EVENT_DATE_LABEL, EVENT_TIME_LABEL, ORG, VENUE } from "@/lib/event";
+import { EVENT_DATE_LABEL, EVENT_TIME_LABEL, VENUE, LOCATION } from "@/lib/event";
 
 const DETAILS = [
   { icon: CalendarDays, label: "Date", value: EVENT_DATE_LABEL },
   { icon: Clock, label: "Time", value: EVENT_TIME_LABEL },
   { icon: MapPin, label: "Location", value: VENUE },
-  { icon: Landmark, label: "Hosted By", value: ORG },
 ];
 
 const REASONS = [
@@ -37,7 +36,7 @@ export function EventInfo() {
         subtitle="Join us as we honour the mentors who shape every journey on our campus."
       />
 
-      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {DETAILS.map((d, i) => (
           <Reveal key={d.label} delay={i * 0.08}>
             <motion.div
