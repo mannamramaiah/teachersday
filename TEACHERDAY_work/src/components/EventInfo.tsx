@@ -6,7 +6,7 @@ import { EVENT_DATE_LABEL, EVENT_TIME_LABEL, ORG, VENUE } from "@/lib/event";
 const DETAILS = [
   { icon: CalendarDays, label: "Date", value: EVENT_DATE_LABEL },
   { icon: Clock, label: "Time", value: EVENT_TIME_LABEL },
-  { icon: MapPin, label: "Venue", value: VENUE },
+  { icon: MapPin, label: "Location", value: VENUE },
   { icon: Landmark, label: "Hosted By", value: ORG },
 ];
 

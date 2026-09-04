@@ -4,12 +4,12 @@ import { Reveal, SectionHeading } from "@/components/Section";
 
 const ITEMS = [
   {
-    title: "College Events at AM Reddy Group of Institutions",
+    title: "College Events at A.M. Reddy Memorial College of Pharmacy",
   },
   { title: "College Events" },
   { title: "Mentoring Sessions" },
   { title: "Student Achievements" },
-  { title: "Previous Teacher's Day Celebrations at AM Reddy Group of Institutions" },
+  { title: "Previous Teacher's Day Celebrations at A.M. Reddy Memorial College of Pharmacy" },
   { title: "Last Class" },
 ];
 
@@ -17,9 +17,9 @@ export function Gallery() {
   return (
     <section id="gallery" className="section-pad relative">
       <SectionHeading
-        eyebrow="Memory Gallery"
-        title="MEMORIES THAT INSPIRE"
-        subtitle="Moments from our campus life that our teachers made possible."
+        eyebrow=""
+        title=""
+        subtitle=""
       />
 
       <div className="mx-auto max-w-4xl">

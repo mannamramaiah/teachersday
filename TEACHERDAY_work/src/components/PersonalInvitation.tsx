@@ -12,10 +12,24 @@ import {
   VENUE,
 } from "@/lib/event";
 
-const MESSAGE =
-  "Your dedication, guidance and encouragement have shaped countless dreams and inspired students to become better versions of themselves.";
+const GREETINGS = [
+  "Your dedication, guidance and encouragement have shaped countless dreams and inspired students to become better versions of themselves.",
+  "Your wisdom has guided us, your kindness has encouraged us, and your dedication has inspired us to dream bigger and achieve more.",
+  "Your guidance has been a guiding light in our journey, shaping our thoughts, strengthening our confidence, and inspiring us to reach our highest potential.",
+  "Behind every confident student is a teacher who believed, encouraged, and inspired. Your support has touched many lives and created memories that will always be cherished.",
+  "You have not only taught lessons from books, but also lessons for life. Your encouragement continues to inspire us to learn, grow, and become the best version of ourselves.",
+  "With immense respect and gratitude, we acknowledge the invaluable role you have played in guiding and inspiring generations of students.",
+  "Your guidance shapes minds, your encouragement builds confidence, and your dedication inspires futures.",
+  "You planted the seeds of knowledge, nurtured them with patience, and helped them grow into dreams of tomorrow.",
+  "Every achievement carries the imprint of a teacher who guided us along the way. Your encouragement, patience, and valuable guidance have helped students discover their potential and pursue their dreams.",
+  "A teacher's influence reaches far beyond the classroom—it shapes character, inspires dreams, and builds the future. Your dedication and guidance have touched countless lives.",
+];
 
-function drawInvitation(name: string): Promise<Blob | null> {
+function getRandomGreeting(): string {
+  return GREETINGS[Math.floor(Math.random() * GREETINGS.length)];
+}
+
+function drawInvitation(name: string, greeting: string): Promise<Blob | null> {
   const W = 1080;
   const H = 1350;
   const canvas = document.createElement("canvas");
@@ -100,11 +114,11 @@ function drawInvitation(name: string): Promise<Blob | null> {
   ctx.stroke();
 
   center(`Dear ${name},`, 540, "italic 42px Georgia", "#ffffff");
-  const end = wrap(MESSAGE, 610, "28px Georgia", "#d8dbe8", 780, 44);
+  const end = wrap(greeting, 610, "28px Georgia", "#d8dbe8", 780, 44);
 
   center("September 5, 2026", end + 100, "bold 34px Georgia", "#e8c877");
   center("1:30 PM IST", end + 150, "32px Georgia", "#ffffff");
-  center("Seminar Hall", end + 200, "32px Georgia", "#ffffff");
+  center(VENUE, end + 200, "32px Georgia", "#ffffff");
   center(ORG, end + 255, "bold 30px Georgia", "#e8c877");
 
   wrap(
@@ -122,6 +136,7 @@ function drawInvitation(name: string): Promise<Blob | null> {
 export function PersonalInvitation() {
   const [input, setInput] = useState("");
   const [name, setName] = useState("");
+  const [greeting, setGreeting] = useState("");
   const [error, setError] = useState("");
   const [status, setStatus] = useState("");
 
@@ -132,12 +147,14 @@ export function PersonalInvitation() {
       return;
     }
     setError("");
+    const randomGreeting = getRandomGreeting();
     setName(input.trim());
+    setGreeting(randomGreeting);
     setStatus("✨ INVITATION READY");
   };
 
   const share = async () => {
-    const text = `WITH GREAT RESPECT AND GRATITUDE\n\nDear ${name},\nYou are cordially invited to the Teacher's Day Celebration 2026.\n${EVENT_DATE_LABEL} • ${EVENT_TIME_LABEL}\n${VENUE}, ${ORG}\n\n${MESSAGE}`;
+    const text = `WITH GREAT RESPECT AND GRATITUDE\n\nDear ${name},\nYou are cordially invited to the Teacher's Day Celebration 2026.\n${EVENT_DATE_LABEL} • ${EVENT_TIME_LABEL}\n${VENUE}, ${ORG}`;
     try {
       if (navigator.share) {
         await navigator.share({ title: "Teacher's Day Celebration 2026", text });
@@ -152,7 +169,7 @@ export function PersonalInvitation() {
   };
 
   const download = async () => {
-    const blob = await drawInvitation(name);
+    const blob = await drawInvitation(name, greeting);
     if (!blob) {
       setStatus("Download is not supported on this device.");
       return;
@@ -243,7 +260,7 @@ export function PersonalInvitation() {
                   Dear {name},
                 </p>
                 <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-foreground/85">
-                  {MESSAGE}
+                  {greeting}
                 </p>
                 <div className="mt-8 space-y-1 text-sm text-foreground/90">
                   <p>{EVENT_DATE_LABEL}</p>
