@@ -4,7 +4,7 @@ import { Hero } from "@/components/Hero";
 import { Leadership } from "@/components/Leadership";
 import { EventInfo } from "@/components/EventInfo";
 import { Appreciation } from "@/components/Appreciation";
-
+import { VenueCard } from "@/components/VenueCard";
 import { Gallery } from "@/components/Gallery";
 import { Countdown } from "@/components/Countdown";
 import { GrandInvitation } from "@/components/GrandInvitation";
@@ -15,7 +15,7 @@ const TITLE = "Teacher's Day 2026 | AM Reddy Group of Institutions";
 const DESC =
   "Teacher's Day Celebration 2026 at AM Reddy Group of Institutions — September 5, 2026, 1:30 PM IST, Seminar Hall. A tribute to our mentors.";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/")({}
   head: () => ({
     meta: [
       { title: TITLE },
@@ -39,7 +39,7 @@ function Index() {
         <EventInfo />
         <Countdown />
         <Appreciation />
-        
+        <VenueCard />
         <Gallery />
         <GrandInvitation />
         <PersonalInvitation />
