@@ -1,6 +1,6 @@
 {
-  "buildCommand": "cd TEACHERDAY_work && npm install && npm run build",
-  "outputDirectory": "TEACHERDAY_work/.output",
-  "devCommand": "cd TEACHERDAY_work && npm run dev",
-  "installCommand": "cd TEACHERDAY_work && npm install"
+  "buildCommand": "npm run build",
+  "outputDirectory": ".output",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install"
 }
