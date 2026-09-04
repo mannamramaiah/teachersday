@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { Reveal, SectionHeading } from "@/components/Section";
 import chairmanPhoto from "@/assets/image_2.jpeg";
 import secretaryPhoto from "@/assets/imag1.jpeg";
+import manasPhoto from "@/assets/manas.png";
 import mallikarjunPhoto from "@/assets/mallikarjun.webp";
 import krishnaReddyPhoto from "@/assets/krishna_reddy.jpeg";
 import bhargavBhushanPhoto from "@/assets/bhargav_bhushan.jpeg";
@@ -9,7 +10,7 @@ import bhargavBhushanPhoto from "@/assets/bhargav_bhushan.jpeg";
 const LEADERS = [
   { name: "Sri A. Srinivas Reddy", role: "Chairman of A M REDDY GROUP OF INSTITUTIONS", photo: chairmanPhoto },
   { name: "Dr Santhi Atluri", role: "Secretary of A M REDDY GROUP OF INSTITUTIONS", photo: secretaryPhoto },
-  { name: "Mr. Atluri Manas Reddy", role: "Global Secretary, AMR Group", photo: null },
+  { name: "Mr. Atluri Manas Reddy", role: "Global Secretary, AMR Group", photo: manasPhoto },
   {
     name: "Dr. Ch. Mallikarjun",
     role: "B.Tech Principal",
