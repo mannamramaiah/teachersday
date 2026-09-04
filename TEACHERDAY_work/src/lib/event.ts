@@ -3,7 +3,8 @@ export const COLLEGE_NAME = "A.M. Reddy Memorial College of Pharmacy";
 export const EVENT_TITLE = "Teacher's Day Celebration 2026";
 export const EVENT_DATE_LABEL = "September 5, 2026";
 export const EVENT_TIME_LABEL = "01:30 PM IST";
-export const VENUE = "A.M. Reddy Memorial College of Pharmacy Seminar Hall";
+export const VENUE_PLACE = "Seminar Hall";
+export const VENUE = "Seminar Hall, A.M. Reddy Memorial College of Pharmacy";
 export const LOCATION = "Narasaraopet, Palnadu, AP";
 
 /** Sept 5 2026, 13:30 IST => 08:00 UTC */

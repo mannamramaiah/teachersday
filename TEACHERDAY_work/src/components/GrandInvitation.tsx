@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { CalendarPlus, MapPin, X, Heart } from "lucide-react";
 import { Reveal } from "@/components/Section";
 import { Particles } from "@/components/Particles";
-import { downloadIcs, EVENT_DATE_LABEL, EVENT_TIME_LABEL, ORG, VENUE, LOCATION } from "@/lib/event";
+import { downloadIcs, EVENT_DATE_LABEL, EVENT_TIME_LABEL, ORG, VENUE_PLACE, COLLEGE_NAME, LOCATION } from "@/lib/event";
 import { scrollToId } from "@/components/Navbar";
 
 import invitationBg from "@/assets/image_2.jpeg";
@@ -47,7 +47,9 @@ export function GrandInvitation() {
             </div>
             <div>
               <dt className="text-xs tracking-[0.25em] text-muted-foreground uppercase">Venue</dt>
-              <dd className="text-lg font-medium mt-1">{VENUE}</dd>
+              <dd className="text-lg font-medium mt-1">{VENUE_PLACE},</dd>
+              <dd className="text-lg font-medium">{COLLEGE_NAME}</dd>
+              <dd className="text-sm text-gold mt-1">at {EVENT_TIME_LABEL}</dd>
             </div>
             <div>
               <dt className="text-xs tracking-[0.25em] text-muted-foreground uppercase">Location</dt>
@@ -120,11 +122,14 @@ export function GrandInvitation() {
 
               {/* Venue Name */}
               <h3 className="mt-6 font-display text-2xl font-semibold text-foreground sm:text-3xl">
-                {VENUE}
+                {VENUE_PLACE},
               </h3>
+              <h4 className="mt-2 font-display text-xl font-semibold text-foreground">
+                {COLLEGE_NAME}
+              </h4>
 
               {/* Organization */}
-              <p className="mt-3 text-xs tracking-[0.22em] text-gold uppercase font-medium">{ORG}</p>
+              <p className="mt-3 text-xs tracking-[0.22em] text-gold uppercase font-medium">at {EVENT_TIME_LABEL}</p>
 
               {/* Location */}
               <p className="mt-4 text-sm text-foreground/85">
@@ -133,7 +138,7 @@ export function GrandInvitation() {
 
               {/* Description */}
               <p className="mt-6 text-sm text-muted-foreground leading-relaxed">
-                Join us for a magnificent celebration of our mentors on <span className="text-gold font-medium">{EVENT_DATE_LABEL}</span> at <span className="text-gold font-medium">{EVENT_TIME_LABEL}</span>.
+                Join us for a magnificent celebration of our mentors on <span className="text-gold font-medium">{EVENT_DATE_LABEL}</span>.
               </p>
 
               {/* Heart Animation */}
